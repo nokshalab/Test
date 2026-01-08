@@ -437,7 +437,7 @@
                 <div class="text-gray-500 text-sm md:text-right">
                     <p>&copy; 2024 Noksha Lab.</p>
                     <p class="text-xs mt-1">Developed for B-Baria Telecom</p>
-                    <p class="text-[10px] mt-1 opacity-50 font-english">v2.6.0 Stable</p>
+                    <p class="text-[10px] mt-1 opacity-50 font-english">v2.6.5 Stable</p>
                 </div>
             </div>
         </div>
@@ -445,14 +445,15 @@
 
     <!-- MODALS -->
     
-    <!-- Account Type Settings Modal (NEW) -->
+    <!-- Account Type Settings Modal (UPDATED FOR DESCO) -->
     <div id="modal-type-settings" class="fixed inset-0 z-[70] flex items-center justify-center bg-black bg-opacity-90 hidden backdrop-blur-sm">
         <div class="glass-panel p-6 rounded-xl w-full max-w-sm mx-4 border border-purple-500/30">
             <h3 class="text-lg font-bold text-white mb-2"><span id="type-settings-name" class="text-purple-400"></span> সেটিংস</h3>
             <p class="text-xs text-gray-400 mb-4">এই অ্যাকাউন্টের ধরণ অনুযায়ী অটোমেটিক লাভের হিসাব সেট করুন</p>
             <input type="hidden" id="setting-type-key">
             
-            <div class="space-y-3">
+            <!-- Generic Fields -->
+            <div id="settings-generic-fields" class="space-y-3">
                 <div>
                     <label class="text-xs text-gray-400 block mb-1">ক্যাশ আউট খরচ (প্রতি হাজারে)</label>
                     <input type="number" id="setting-cashout-cost" placeholder="18.5" class="input-field text-sm">
@@ -465,6 +466,24 @@
                     <label class="text-xs text-gray-400 block mb-1">কমিশন / লাভ (শতাংশ %)</label>
                     <input type="number" id="setting-commission" placeholder="2.5" class="input-field text-sm">
                     <p class="text-[10px] text-gray-500 mt-1">রিচার্জ বা ক্যাশ ইনের ক্ষেত্রে প্রযোজ্য</p>
+                </div>
+            </div>
+
+            <!-- Desco Specific Fields (Hidden by default) -->
+            <div id="settings-desco-fields" class="space-y-3 hidden">
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1">কাস্টমার ফি (প্রতি হাজারে)</label>
+                    <input type="number" id="setting-desco-fee" placeholder="10" class="input-field text-sm">
+                    <p class="text-[10px] text-gray-500 mt-1">যেমন: ১০০০ টাকার জন্য ১০ টাকা লাভ (স্ল্যাব ভিত্তিক)</p>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1">কোম্পানি চার্জ (প্রতি হাজারে)</label>
+                    <input type="number" id="setting-desco-cost" placeholder="2.5" class="input-field text-sm">
+                    <p class="text-[10px] text-gray-500 mt-1">কোম্পানি যা কাটবে (যেমন ২.৫০ টাকা)</p>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1">সর্বনিম্ন রিচার্জ লিমিট</label>
+                    <input type="number" id="setting-desco-min" placeholder="100" class="input-field text-sm">
                 </div>
             </div>
 
@@ -1706,36 +1725,58 @@
             if(isDraggable) addDragListeners(); 
         }
 
-        // --- NEW: Type Settings Logic ---
+        // --- UPDATED: Type Settings Logic with Desco Support ---
         function openTypeSettings(type) {
             document.getElementById('modal-type-settings').classList.remove('hidden');
             document.getElementById('type-settings-name').innerText = type;
             document.getElementById('setting-type-key').value = type;
 
-            // Load existing settings if any
             const settings = appData.typeSettings[type] || {};
-            document.getElementById('setting-cashout-cost').value = settings.cashoutCost || '';
-            document.getElementById('setting-send-cost').value = settings.sendCost || '';
-            document.getElementById('setting-commission').value = settings.commission || '';
+
+            // Toggle visibility based on type
+            if (type === 'Desco') {
+                document.getElementById('settings-generic-fields').classList.add('hidden');
+                document.getElementById('settings-desco-fields').classList.remove('hidden');
+                
+                // Load Desco specific values (with defaults)
+                document.getElementById('setting-desco-fee').value = settings.customerFee || 10;
+                document.getElementById('setting-desco-cost').value = settings.companyCost || 2.5;
+                document.getElementById('setting-desco-min').value = settings.minRecharge || 100;
+            } else {
+                document.getElementById('settings-generic-fields').classList.remove('hidden');
+                document.getElementById('settings-desco-fields').classList.add('hidden');
+
+                // Load Generic values
+                document.getElementById('setting-cashout-cost').value = settings.cashoutCost || '';
+                document.getElementById('setting-send-cost').value = settings.sendCost || '';
+                document.getElementById('setting-commission').value = settings.commission || '';
+            }
         }
 
         function saveTypeSettings() {
             const type = document.getElementById('setting-type-key').value;
-            const cashoutCost = parseFloat(document.getElementById('setting-cashout-cost').value) || 0;
-            const sendCost = parseFloat(document.getElementById('setting-send-cost').value) || 0;
-            const commission = parseFloat(document.getElementById('setting-commission').value) || 0;
+            let data = {};
+
+            if (type === 'Desco') {
+                data = {
+                    customerFee: parseFloat(document.getElementById('setting-desco-fee').value) || 0,
+                    companyCost: parseFloat(document.getElementById('setting-desco-cost').value) || 0,
+                    minRecharge: parseFloat(document.getElementById('setting-desco-min').value) || 0
+                };
+            } else {
+                data = {
+                    cashoutCost: parseFloat(document.getElementById('setting-cashout-cost').value) || 0,
+                    sendCost: parseFloat(document.getElementById('setting-send-cost').value) || 0,
+                    commission: parseFloat(document.getElementById('setting-commission').value) || 0
+                };
+            }
 
             if(!appData.typeSettings) appData.typeSettings = {};
-            
-            appData.typeSettings[type] = {
-                cashoutCost: cashoutCost,
-                sendCost: sendCost,
-                commission: commission
-            };
+            appData.typeSettings[type] = data;
 
             saveData();
             closeModal('modal-type-settings');
-            showToast(`${type} এর সেটিংস সেভ হয়েছে`, "success");
+            showToast(`${type} সেটিংস আপডেট হয়েছে`, "success");
         }
 
         function openAccountFormModal(id = null) { 
