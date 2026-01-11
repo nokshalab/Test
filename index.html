@@ -1318,7 +1318,7 @@
 
         // --- RENDER FUNCTIONS ---
         function renderAdminPanel() {
-            let totalAccountBalance = appData.accounts.reduce((acc, curr) => acc + parseInt(curr.balance), 0);
+            let totalAccountBalance = appData.accounts.reduce((acc, curr) => acc + parseFloat(curr.balance), 0);
             appData.balance = totalAccountBalance;
             let totalStockVal = appData.items.reduce((acc, item) => { if(item.stock > 0) return acc + (item.cost * item.stock); return acc; }, 0);
             appData.stockVal = totalStockVal;
@@ -1524,8 +1524,8 @@
 
         function updateQSPreview() {
             if(!currentQuickSaleItem) return;
-            const qty = parseInt(document.getElementById('qs-qty').value) || 0;
-            const customPrice = parseInt(document.getElementById('qs-custom-price').value) || 0;
+            const qty = parseFloat(document.getElementById('qs-qty').value) || 0;
+            const customPrice = parseFloat(document.getElementById('qs-custom-price').value) || 0;
             
             const totalBill = qty * customPrice;
             const totalCost = qty * currentQuickSaleItem.cost;
@@ -1539,13 +1539,13 @@
         }
 
         function submitQuickSale() {
-            const qty = parseInt(document.getElementById('qs-qty').value) || 1;
-            const customPrice = parseInt(document.getElementById('qs-custom-price').value) || 0;
+            const qty = parseFloat(document.getElementById('qs-qty').value) || 1;
+            const customPrice = parseFloat(document.getElementById('qs-custom-price').value) || 0;
             
             if (qty < 1) return;
             const item = currentQuickSaleItem;
             
-            const totalCost = parseInt(item.cost) * qty;
+            const totalCost = parseFloat(item.cost) * qty;
             const totalPrice = customPrice * qty; 
             const totalProfit = totalPrice - totalCost;
             
@@ -1640,7 +1640,7 @@
             const isDraggable = searchVal === '' && currentAccountFilter === 'All'; 
 
             filteredAccounts.forEach((acc, index) => { 
-                total += parseInt(acc.balance); 
+                total += parseFloat(acc.balance); 
                 
                 const realIndex = appData.accounts.indexOf(acc);
                 const draggableAttr = isDraggable ? 'draggable="true"' : '';
@@ -2100,7 +2100,7 @@
             const id = document.getElementById('account-id').value; 
             const name = document.getElementById('account-name').value; 
             const type = document.getElementById('account-type').value; // Get Type
-            const balanceVal = parseInt(document.getElementById('account-initial-balance').value) || 0; 
+            const balanceVal = parseFloat(document.getElementById('account-initial-balance').value) || 0; 
             
             if(!name) return; 
             
@@ -2122,8 +2122,8 @@
         function openAccountTransactModal(id) { const acc = appData.accounts.find(a => a.id === id); document.getElementById('transact-account-id').value = acc.id; document.getElementById('transact-account-name').innerText = acc.name + " - লেনদেন"; document.getElementById('modal-account-transact').classList.remove('hidden'); }
         
         function submitAccountTransaction(type) { 
-            const id = parseInt(document.getElementById('transact-account-id').value); 
-            const amount = parseInt(document.getElementById('transact-amount').value); 
+            const id = parseFloat(document.getElementById('transact-account-id').value); 
+            const amount = parseFloat(document.getElementById('transact-amount').value); 
             const desc = document.getElementById('transact-desc').value || (type === 'deposit' ? 'জমা' : 'খরচ'); 
             
             if(!amount) return; 
@@ -2153,9 +2153,9 @@
             // keeping it empty or redirecting just in case
             switchDashboardView('cash');
         }
-        function submitCashTransaction(type) { const amount = parseInt(document.getElementById('manage-cash-amount').value); const desc = document.getElementById('manage-cash-desc').value || (type === 'add' ? 'জমা' : 'উত্তোলন'); if(!amount) return; if (type === 'add') { appData.cash += amount; addToHistory('ম্যানুয়াল ক্যাশ জমা', desc, 1, 0, amount, 0); } else { if (appData.cash < amount) { showToast("ক্যাশ নেই!", "error"); return; } appData.cash -= amount; addToHistory('ক্যাশ উত্তোলন', desc, 1, 0, amount, 0); } saveData(); refreshUI(); showToast("লেনদেন সম্পন্ন হয়েছে", "success"); document.getElementById('manage-cash-amount').value = ''; document.getElementById('manage-cash-desc').value = ''; }
+        function submitCashTransaction(type) { const amount = parseFloat(document.getElementById('manage-cash-amount').value); const desc = document.getElementById('manage-cash-desc').value || (type === 'add' ? 'জমা' : 'উত্তোলন'); if(!amount) return; if (type === 'add') { appData.cash += amount; addToHistory('ম্যানুয়াল ক্যাশ জমা', desc, 1, 0, amount, 0); } else { if (appData.cash < amount) { showToast("ক্যাশ নেই!", "error"); return; } appData.cash -= amount; addToHistory('ক্যাশ উত্তোলন', desc, 1, 0, amount, 0); } saveData(); refreshUI(); showToast("লেনদেন সম্পন্ন হয়েছে", "success"); document.getElementById('manage-cash-amount').value = ''; document.getElementById('manage-cash-desc').value = ''; }
         function openItemModal(id = null) { document.getElementById('modal-item').classList.remove('hidden'); if(id) { const item = appData.items.find(i => i.id === id); document.getElementById('modal-item-title').innerText = "এডিট করুন"; document.getElementById('item-id').value = item.id; document.getElementById('item-name').value = item.name; document.getElementById('item-category').value = item.category; document.getElementById('item-docs').value = item.docs; document.getElementById('item-cost').value = item.cost; document.getElementById('item-price').value = item.price; document.getElementById('item-stock').value = item.stock; } else { document.getElementById('modal-item-title').innerText = "নতুন প্রোডাক্ট"; document.getElementById('item-id').value = ''; document.getElementById('item-name').value = ''; document.getElementById('item-category').value = ''; document.getElementById('item-docs').value = ''; document.getElementById('item-cost').value = ''; document.getElementById('item-price').value = ''; document.getElementById('item-stock').value = ''; } }
-        function saveItem() { const id = document.getElementById('item-id').value; const newItem = { id: id ? parseInt(id) : Date.now(), name: document.getElementById('item-name').value, category: document.getElementById('item-category').value, docs: document.getElementById('item-docs').value, cost: parseInt(document.getElementById('item-cost').value), price: parseInt(document.getElementById('item-price').value), stock: parseInt(document.getElementById('item-stock').value) }; if (id) { const index = appData.items.findIndex(i => i.id == id); appData.items[index] = newItem; } else { appData.items.push(newItem); } saveData(); closeModal('modal-item'); }
+        function saveItem() { const id = document.getElementById('item-id').value; const newItem = { id: id ? parseFloat(id) : Date.now(), name: document.getElementById('item-name').value, category: document.getElementById('item-category').value, docs: document.getElementById('item-docs').value, cost: parseFloat(document.getElementById('item-cost').value), price: parseFloat(document.getElementById('item-price').value), stock: parseFloat(document.getElementById('item-stock').value) }; if (id) { const index = appData.items.findIndex(i => i.id == id); appData.items[index] = newItem; } else { appData.items.push(newItem); } saveData(); closeModal('modal-item'); }
         function deleteItem(id) { if(confirm("ডিলিট করবেন?")) { appData.items = appData.items.filter(i => i.id !== id); saveData(); renderAdminItems(); } }
 
         window.onload = function() {
@@ -2186,5 +2186,35 @@
  window.addEventListener('resize', update);
  update();
 })();
-</script></body>
+</script>
+<script>
+/* ===== FINAL DISPLAY RULE: MAX 5 DECIMALS (NO ROUND) ===== */
+function truncateDecimals(val, max = 5) {
+    if (isNaN(val)) return val;
+    const s = val.toString();
+    if (!s.includes('.')) return s;
+    const p = s.split('.');
+    return p[0] + '.' + p[1].slice(0, max);
+}
+
+function applyTruncate(root=document.body) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    let node;
+    while (node = walker.nextNode()) {
+        const t = node.nodeValue;
+        if (!t) continue;
+        node.nodeValue = t.replace(/([0-9]+\.[0-9]{6,})/g, (m) => {
+            return truncateDecimals(m, 5);
+        });
+    }
+}
+
+const obs = new MutationObserver(() => applyTruncate());
+obs.observe(document.body, { childList: true, subtree: true });
+
+document.addEventListener('DOMContentLoaded', () => applyTruncate());
+/* ====================================================== */
+</script>
+
+</body>
 </html>
