@@ -1,0 +1,2259 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.8rem 5%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-item:hover {
+  color: #818cf8;
+}
+
+.menu-icon {
+  display: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-icon { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #0f172a;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+  .nav-links.active { right: 0; }
+}.footer {
+  background: #0b1120;
+  padding: 4rem 5% 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-brand p {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.footer-links h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  color: #94a3b8;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-links li:hover {
+  color: #6366f1;
+  padding-left: 5px;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #64748b;
+  font-size: 0.9rem;
+}/* Mizentia.css */
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --primary: #6366f1;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --gradient-main: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+.app-container {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 40%);
+}
+
+.hero h1 { font-size: 4rem; line-height: 1.2; }
+.hero h1 span { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { font-size: 1.5rem; color: var(--text-muted); max-width: 700px; margin: 2rem 0; }
+
+.hero-btn {
+  padding: 1rem 2rem;
+  background: var(--gradient-main);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.companies-section { padding: 5rem 5%; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+
+.card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.4s;
+}
+
+.card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+.card-action {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}.page-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* এই লেয়ারটি মাউস ইভেন্ট ব্লক করবে না */
+.login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none; /* মাউস ব্যাকগ্রাউন্ডে পৌঁছাবে */
+}.noksha-toast-root {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.noksha-toast {
+  min-width: 220px;
+  max-width: 360px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: noksha-toast-in 300ms ease;
+}
+
+.noksha-toast.info { background: linear-gradient(135deg,#0ea5e9,#0284c7); }
+.noksha-toast.success { background: linear-gradient(135deg,#34d399,#10b981); }
+.noksha-toast.error { background: linear-gradient(135deg,#f87171,#ef4444); }
+.noksha-toast.warn { background: linear-gradient(135deg,#f59e0b,#d97706); }
+
+.noksha-toast-message { flex: 1; font-size: 13px; color: #041029; font-weight: 600; }
+.noksha-toast-close { background: transparent; border: none; color: rgba(4,6,41,0.7); font-weight: 700; cursor: pointer; }
+
+@keyframes noksha-toast-in {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* কার্ডের এরিয়া */
+.login-card {
+  position: relative;
+  width: 380px;
+  padding: 40px;
+  border-radius: 30px;
+  overflow: hidden;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+/* সুপার ট্রান্সপারেন্ট গ্লাস ইফেক্ট */
+.glass-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: -1;
+}
+
+/* টাইটেল ডিজাইন */
+.form-content h2 {
+  color: #fff;
+  text-align: center;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* বাটন এনিমেশন */
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+
+.login-btn:hover {
+  background: #fff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+  transform: scale(1.02);
+}.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}/* স্লাইডবার বা হরাইজন্টাল স্ক্রলবার প্রতিরোধ করার জন্য */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Navigation Main Container --- */
+.glass-nav-system {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  width: 100%;
+  padding: 10px 24px;
+  /* গ্লাস মর্ফিজম ইফেক্ট */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(2px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* --- Brand/Logo Styling --- */
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-box {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.brand-info h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-info p {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 3px 0 0 0;
+}
+
+/* --- Central Clock Styling --- */
+.nav-clock-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* ক্লকের ওপর ক্লিক যাতে বাটন আটকায় না */
+}
+
+.clock-glass-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 18px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  backdrop-filter: blur(2px);
+}
+
+.clock-date-bn {
+  font-size: 12px;
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+
+.clock-v-line {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.clock-time-bn {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+/* --- Desktop Action Buttons --- */
+.desktop-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.nav-action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.logout-action-btn {
+  height: 40px;
+  padding: 0 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-action-btn:hover {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* --- Mobile Menu Trigger --- */
+.mobile-menu-trigger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 2001;
+}
+
+/* --- Floating Compact Drawer Menu --- */
+.floating-drawer {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 24px;
+  width: 200px; /* কম্প্যাক্ট সাইজ */
+  background: rgb(15, 23, 42);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.629);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  
+  /* Animation States */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3000;
+}
+
+.floating-drawer.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.drawer-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  letter-spacing: 1.5px;
+}
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.drawer-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.item-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-red {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* --- Responsive Scaling Logic --- */
+
+/* ১. স্ক্রিন যখন ৮৮০px এর নিচে (ট্যাবলেট বা ছোট ল্যাপটপ): ঘড়ি সরিয়ে ফেলব যাতে বাটন জায়গা পায় */
+@media (max-width: 880px) {
+  .nav-clock-center {
+    display: none;
+  }
+}
+
+/* ২. স্ক্রিন যখন ৫৮০px এর নিচে (মোবাইল): বাটন সরিয়ে টগল মেনু আনব */
+@media (max-width: 580px) {
+  .desktop-actions-row {
+    display: none;
+  }
+  .mobile-menu-trigger {
+    display: block;
+  }
+  .glass-nav-system {
+    padding: 10px 16px;
+  }
+  .floating-drawer {
+    right: 16px;
+    width: 180px;
+  }
+}/* Dashboard.module.css */
+
+/* মেইন কন্টেইনার */
+._container_69urd_7 {
+  display: flex;
+  height: calc(100vh - 80px); /* ন্যাভবার বাদ দিয়ে বাকি হাইট, প্রয়োজনমতো এডজাস্ট করুন */
+  background: transparent;
+  color: #e2e8f0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* সাইডবার এরিয়া */
+._sidebar_69urd_29 {
+  flex: 0 0 auto;
+  z-index: 10;
+  background: rgba(15, 23, 42, 0.462); 
+  backdrop-filter: blur(1px);
+  border-right: 1px solid rgba(255, 255, 255, 0.39);
+  /* ডিফল্ট উইডথ */
+  width: 320px; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ডান পাশের গ্লাস ইফেক্ট কন্টেইনার */
+._glassContent_69urd_55 {
+  flex: 1;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  position: relative;
+  
+  /* --- গ্লাস ইফেক্ট কোর --- */
+  backdrop-filter: blur(5px); /* ব্লার একটু বাড়ানো হয়েছে কন্টেন্ট পড়ার সুবিধার্থে */
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  
+  border: 1px solid color-mix(in srgb, var(--theme-color), transparent 70%);
+  
+  background: linear-gradient(
+    145deg, 
+    rgba(255, 255, 255, 0.03), 
+    color-mix(in srgb, var(--theme-color), transparent 90%) 
+  );
+
+  transition: all 0.4s ease;
+  animation: _fadeIn_69urd_1 0.3s ease-out; /* কন্টেন্ট আসার সময় সুন্দর এনিমেশন */
+}
+
+/* হেডার ফ্লেক্স কন্টেইনার আপডেট */
+._contentHeaderRow_69urd_107 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* items-center এর বদলে flex-start যাতে র‍্যাপ হলে সমস্যা না হয় */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  gap: 15px;
+  flex-wrap: wrap; /* জায়গা না থাকলে নিচে নামবে */
+}
+
+/* টাইটেল এবং শর্টকাট গ্রুপ */
+._headerLeft_69urd_131 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1; /* যতটুকু জায়গা পাবে নিবে */
+  flex-wrap: wrap; /* স্ক্রিন ছোট হলে শর্টকাট নিচে নামবে */
+}
+
+._glassHeader_69urd_147 {
+  color: var(--theme-color);
+  margin: 0;
+  font-size: 1.8rem;
+  white-space: nowrap; /* টাইটেল ভাঙবে না */
+}
+
+/* শর্টকাট কন্টেইনার */
+._shortcutContainer_69urd_163 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* শর্টকাট বাটন ডিজাইন */
+._shortcutBtn_69urd_177 {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+._shortcutBtn_69urd_177:hover, ._shortcutBtn_69urd_177._active_69urd_203 {
+  background: var(--theme-color);
+  color: #fff; /* থিমের উপর সাদা টেক্সট */
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ক্লোজ বাটন (ফিক্সড পজিশন মোবাইলের জন্য সেফটি) */
+._closeBtn_69urd_221 {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ef4444;
+  min-width: 36px; /* ফিক্সড সাইজ */
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: auto; /* সব সময় ডানে ধাক্কা দিবে */
+}
+
+._closeBtn_69urd_221:hover {
+  background: #ef4444;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+/* কন্টেন্ট এনিমেশন */
+@keyframes _fadeIn_69urd_1 {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- রেসপন্সিভ ব্রেকপয়েন্ট (মোবাইল/ট্যাবলেট) --- */
+@media (max-width: 880px) {
+  
+  ._headerLeft_69urd_131 {
+    flex-direction: column; /* মোবাইলে টাইটেল উপরে, বাটন নিচে */
+    align-items: flex-start;
+    gap: 10px;
+    width: calc(100% - 50px); /* ক্লোজ বাটনের জন্য জায়গা রাখা */
+  }
+
+  ._glassHeader_69urd_147 {
+    font-size: 1.5rem;
+  }
+
+  /* মোবাইলে সাইডবার পুরো উইডথ নেবে */
+  ._sidebar_69urd_29 {
+    width: 100%; 
+    border-right: none;
+    background: transparent; /* মোবাইলে ব্যাকগ্রাউন্ড স্বচ্ছ রাখলে সুন্দর লাগবে */
+  }
+
+  /* মোবাইলে কন্টেন্ট বক্সের মার্জিন এবং বর্ডার রেডিয়াস কমানো */
+  ._glassContent_69urd_55 {
+    margin: 0;       /* মার্জিন বাদ, ফুল স্ক্রিন */
+    border-radius: 0;/* চারকোনা */
+    padding: 20px;
+    height: 100%;    /* পুরো হাইট */
+    border: none;    /* বর্ডার বাদ দিতে পারেন মোবাইলে ক্লিন লুকের জন্য */
+    border-top: 1px solid rgba(255,255,255,0.1); /* শুধু উপরে বর্ডার */
+  }
+
+  ._contentHeaderRow_69urd_107 {
+    padding-top: 10px; /* উপরে একটু জায়গা */
+  }
+}/* StatsCards.module.css */
+._statsContainer_1p6mk_3 {
+  display: flex;
+  flex-direction: column; /* উপর থেকে নিচে সাজানো */
+  gap: 16px;              /* কার্ডগুলোর মাঝখানের গ্যাপ */
+  padding: 20px;
+  
+  /* সাইডবার সেটিংস */
+  width: 320px;           /* কার্ডের জন্য ফিক্সড উইডথ */
+  min-width: 300px;       /* খুব বেশি ছোট যাতে না হয়ে যায় */
+  height: 100%;           /* পুরো হাইট নেবে */
+  
+  /* --- ফিক্স: স্ক্রলবার সমস্যার সমাধান --- */
+  overflow-y: auto;       /* লম্বালম্বি স্ক্রল থাকবে */
+  overflow-x: hidden;     /* আড়াআড়ি স্ক্রল বা হরাইজন্টাল বার বন্ধ থাকবে */
+  /* ----------------------------------- */
+  
+  /* ডান পাশে বর্ডার (অপশনাল, সেপারেশনের জন্য) */
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box; /* প্যাডিং সহ উইডথ হিসাব করবে */
+}
+
+._statCard_1p6mk_45 {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%; /* কন্টেইনারের পুরোটা জুড়ে থাকবে */
+  box-sizing: border-box;
+}
+
+._statCard_1p6mk_45:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px); /* হোভার করলে একটু ডানে সরবে */
+}
+
+._statCard_1p6mk_45:active {
+  transform: scale(0.98);
+}
+
+._cardIconBg_1p6mk_97 {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.15;
+  width: 50px; /* আইকন সাইজ একটু ছোট করা হয়েছে সাইডবারের জন্য */
+  height: 50px;
+  pointer-events: none;
+}
+
+._cardHeader_1p6mk_119 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+._grip_1p6mk_139 {
+  width: 14px;
+  height: 14px;
+  opacity: 0.4;
+  cursor: grab;
+}
+
+._grip_1p6mk_139:active {
+  cursor: grabbing;
+}
+
+._cardValue_1p6mk_161 {
+  font-size: 1.4rem; /* ফন্ট সাইজ সামান্য এডজাস্ট করা হয়েছে */
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+._cardSub_1p6mk_173 {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}/* B_Baria/Card/Cards/Cash/CashShortcuts.css */
+
+.cash-shortcut-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.cash-nav-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* আইকনের স্টাইল */
+.btn-icon {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* --- আলাদা রঙের ভেরিয়েন্ট --- */
+
+/* ১. জমা (Deposit) - সবুজ */
+.cash-nav-btn.btn-add:hover,
+.cash-nav-btn.btn-add.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  border-color: #22c55e;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ২. উত্তোলন (Withdraw) - লাল */
+.cash-nav-btn.btn-withdraw:hover,
+.cash-nav-btn.btn-withdraw.active {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  border-color: #ef4444;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ৩. সংশোধন (Modified) - কমলা */
+.cash-nav-btn.btn-modified:hover,
+.cash-nav-btn.btn-modified.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border-color: #f59e0b;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+/* হোভার ইফেক্ট সাধারণ */
+.cash-nav-btn:hover .btn-icon,
+.cash-nav-btn.active .btn-icon {
+  opacity: 1;
+}
+
+/* মোবাইলের জন্য এডজাস্টমেন্ট */
+@media (max-width: 600px) {
+  .cash-nav-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    flex: 1;
+    justify-content: center;
+  }
+}/* File: B_Baria/Card/Cards/Account/AccountNavigation.css */
+
+.acc-nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 5px 0;
+}
+
+.acc-nav-btn {
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+}
+
+.acc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0.6;
+  box-shadow: 0 0 5px currentColor;
+}
+
+.acc-nav-btn:hover {
+  transform: translateY(-2px);
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ব্র্যান্ড কালারস (Active State) */
+.acc-nav-btn.active.nav-all { background: linear-gradient(135deg, #64748b, #475569); border-color: #94a3b8; color: #fff; }
+.acc-nav-btn.active.nav-bkash { background: linear-gradient(135deg, #e2136e, #c90e60); border-color: #e2136e; color: #fff; }
+.acc-nav-btn.active.nav-nagad { background: linear-gradient(135deg, #f16124, #d94e12); border-color: #f16124; color: #fff; }
+.acc-nav-btn.active.nav-rocket { background: linear-gradient(135deg, #8c3494, #702678); border-color: #8c3494; color: #fff; }
+.acc-nav-btn.active.nav-upay { background: linear-gradient(135deg, #0081c7, #006aa6); border-color: #0081c7; color: #fff; }
+.acc-nav-btn.active.nav-desco { background: linear-gradient(135deg, #009c48, #007a38); border-color: #009c48; color: #fff; }
+.acc-nav-btn.active.nav-gp { background: linear-gradient(135deg, #00699e, #00507a); border-color: #00699e; color: #fff; }
+.acc-nav-btn.active.nav-bl { background: linear-gradient(135deg, #ff6b00, #cc5500); border-color: #ff6b00; color: #fff; }
+.acc-nav-btn.active.nav-robi { background: linear-gradient(135deg, #ed1c24, #c4131a); border-color: #ed1c24; color: #fff; }
+.acc-nav-btn.active.nav-airtel { background: linear-gradient(135deg, #d60d16, #b00910); border-color: #d60d16; color: #fff; }
+.acc-nav-btn.active.nav-teletalk { background: linear-gradient(135deg, #87c540, #6da330); border-color: #87c540; color: #fff; }/* File: B_Baria/Card/Cards/Product/ProductNavigation.css */
+
+.prod-nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 5px 0;
+}
+
+.prod-nav-btn {
+  padding: 10px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+  white-space: nowrap;
+}
+
+.prod-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0.6;
+  box-shadow: 0 0 5px currentColor;
+}
+
+.prod-nav-btn:hover {
+  transform: translateY(-2px);
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ব্র্যান্ড কালারস (Active State) */
+.prod-nav-btn.active.nav-all { 
+  background: linear-gradient(135deg, #64748b, #475569); 
+  border-color: #94a3b8; 
+  color: #fff; 
+}
+
+.prod-nav-btn.active.nav-sim { 
+  background: linear-gradient(135deg, #3b82f6, #2563eb); 
+  border-color: #3b82f6; 
+  color: #fff; 
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.prod-nav-btn.active.nav-acc { 
+  background: linear-gradient(135deg, #f59e0b, #d97706); 
+  border-color: #f59e0b; 
+  color: #fff; 
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+/* পুরো কন্টেইনার */
+.hard-reset-container {
+  margin-top: 40px;
+  padding: 30px;
+  border: 1px dashed rgba(239, 68, 68, 0.4); /* লাল বর্ডার */
+  border-radius: 16px;
+  background-color: rgba(239, 68, 68, 0.05); /* হালকা লাল আভা */
+  text-align: left;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.hard-reset-container:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* হেডার এবং টেক্সট */
+.hr-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ef4444; /* উজ্জ্বল লাল */
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hr-warning-text {
+  color: #cbd5e1; /* হালকা ছাই কালার */
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* বাটন স্টাইল */
+.hr-btn-primary {
+  padding: 12px 24px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: background-color 0.2s;
+}
+
+.hr-btn-primary:hover {
+  background-color: #dc2626;
+}
+
+.hr-btn-secondary {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.hr-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ইনপুট ফিল্ড */
+.hr-input-group {
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.hr-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.hr-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  outline: none;
+  font-size: 16px;
+  box-sizing: border-box; /* ইনপুট যেন বক্সের বাইরে না যায় */
+}
+
+.hr-input:focus {
+  border-color: #ef4444;
+}
+
+.hr-error {
+  color: #f87171;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* অপশন এবং চেকবক্স */
+.hr-options-box {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.hr-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.hr-checkbox-row:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.hr-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #ef4444;
+}
+
+.hr-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* লোডিং বা প্রসেসিং */
+.hr-processing {
+  text-align: center;
+  padding: 20px;
+  color: #ef4444;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+/* এনিমেশন */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}/* 🛠️ শর্টকাট এডিটর স্টাইল */
+
+.shortcut-editor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shortcut-editor-modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.editor-header {
+  padding: 24px;
+  border-bottom: 1px solid #e0e0e0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.editor-header h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.editor-subtitle {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.editor-content {
+  padding: 24px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* শর্টকাট ডিসপ্লে সেকশন */
+.shortcut-display-section {
+  margin-bottom: 24px;
+}
+
+.shortcut-display-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 14px;
+}
+
+.shortcut-display {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.key-badge {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.modifier {
+  background: #667eea;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.main-key {
+  background: #764ba2;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* রেকর্ডিং সেকশন */
+.recording-section {
+  margin-bottom: 24px;
+}
+
+.recording-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 14px;
+}
+
+.recording-input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.recording-input:hover {
+  border-color: #667eea;
+  background: #f9f9ff;
+}
+
+.recording-input.active {
+  border-color: #ff6b6b;
+  background: #ffe0e0;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.recording-text {
+  font-weight: 600;
+  color: #ff6b6b;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.recording-hint {
+  color: #999;
+}
+
+/* মডিফায়ার সেকশন */
+.modifier-section {
+  margin-bottom: 24px;
+}
+
+.modifier-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 14px;
+}
+
+.modifier-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.checkbox-label input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.checkbox-label span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* এরর মেসেজ */
+.error-message {
+  background: #ffe0e0;
+  color: #c92a2a;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border-left: 4px solid #c92a2a;
+}
+
+/* সাহায্য টেক্সট */
+.editor-help {
+  background: #e7f5ff;
+  color: #1971c2;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  border-left: 4px solid #1971c2;
+  margin-bottom: 0;
+}
+
+.editor-help p {
+  margin: 0;
+}
+
+/* অ্যাকশন বাটন */
+.editor-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e0e0e0;
+  background: #f9f9f9;
+  border-radius: 0 0 12px 12px;
+  flex-wrap: wrap;
+}
+
+.editor-actions button {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  flex: 1.5;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e8e8e8;
+  border-color: #999;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* রেসপন্সিভ */
+@media (max-width: 600px) {
+  .shortcut-editor-modal {
+    width: 95%;
+    max-width: none;
+  }
+
+  .editor-header {
+    padding: 16px;
+  }
+
+  .editor-content {
+    padding: 16px;
+  }
+
+  .editor-actions {
+    padding: 16px;
+    flex-direction: column;
+  }
+
+  .editor-actions button {
+    min-width: auto;
+  }
+
+  .btn-primary {
+    flex: 1;
+  }
+
+  .modifier-controls {
+    flex-direction: column;
+  }
+}
+/* ShortcutGuide.css - কীবোর্ড শর্টকাট গাইডের স্টাইল */
+
+.shortcut-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shortcut-modal-content {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  max-width: 800px;
+  width: 95%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  color: #e2e8f0;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* সাফল্য বার্তা */
+.shortcut-success-message {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  animation: slideDown 0.3s ease-out;
+  text-align: center;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.shortcut-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.shortcut-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.shortcut-modal-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.shortcut-modal-close:hover {
+  color: #f87171;
+  background: rgba(244, 63, 94, 0.1);
+  border-radius: 8px;
+}
+
+/* ===== ট্যাব সেকশন ===== */
+.shortcut-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(15, 23, 42, 0.5);
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.shortcut-tab {
+  padding: 8px 16px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.shortcut-tab:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #e2e8f0;
+}
+
+.shortcut-tab.active {
+  background: rgba(59, 130, 246, 0.4);
+  border-color: #3b82f6;
+  color: #fbbf24;
+}
+
+/* ===== শর্টকাট লিস্ট ===== */
+.shortcut-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.shortcut-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.shortcut-item.editable {
+  cursor: pointer;
+}
+
+.shortcut-item.editable:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.shortcut-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shortcut-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+}
+
+.shortcut-keys::before {
+  content: '⌨️ ';
+}
+
+.shortcut-description {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.shortcut-keys-display {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 150px;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 6px;
+  border: 1px dashed rgba(59, 130, 246, 0.3);
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.shortcut-edit-btn {
+  padding: 6px 12px;
+  background: rgba(59, 130, 246, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  border-radius: 6px;
+  color: #3b82f6;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.shortcut-edit-btn:hover {
+  background: rgba(59, 130, 246, 0.6);
+  color: white;
+  border-color: #3b82f6;
+}
+
+.shortcut-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+/* ===== ফুটার ===== */
+.shortcut-footer {
+  padding: 16px 24px;
+  background: rgba(34, 197, 94, 0.1);
+  border-top: 1px solid rgba(34, 197, 94, 0.3);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.shortcut-footer p {
+  margin: 0;
+  color: #86efac;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shortcut-footer strong {
+  color: #fbbf24;
+  font-family: 'Courier New', monospace;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ===== স্ক্রলবার কাস্টমাইজেশন ===== */
+.shortcut-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.shortcut-list::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+}
+
+.shortcut-list::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 4px;
+}
+
+.shortcut-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+/* ===== রেসপন্সিভ ডিজাইন ===== */
+@media (max-width: 640px) {
+  .shortcut-modal-content {
+    max-height: 95vh;
+    width: 98%;
+    border-radius: 12px;
+  }
+
+  .shortcut-modal-header {
+    padding: 16px;
+  }
+
+  .shortcut-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .shortcut-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .shortcut-keys {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .shortcut-list {
+    padding: 16px;
+  }
+
+  .shortcut-tabs {
+    padding: 12px 16px;
+    gap: 6px;
+  }
+
+  .shortcut-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+/* QuickTransactionPanel.css - দ্রুত লেনদেন প্যানেলের স্টাইল */
+
+.qtp-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1500;
+  backdrop-filter: blur(8px);
+  animation: fadeInOverlay 0.3s ease-out;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.qtp-panel {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.98), rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  color: #e2e8f0;
+  animation: slideUpPanel 0.3s ease-out;
+}
+
+@keyframes slideUpPanel {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Header ===== */
+.qtp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.qtp-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.qtp-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.qtp-close:hover {
+  color: #f87171;
+  background: rgba(244, 63, 94, 0.1);
+  border-radius: 8px;
+}
+
+/* ===== Type Selector ===== */
+.qtp-type-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.qtp-type-btn {
+  padding: 10px 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.qtp-type-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #e2e8f0;
+}
+
+.qtp-type-btn.active {
+  background: rgba(59, 130, 246, 0.4);
+  border-color: #3b82f6;
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+.qtp-type-icon {
+  font-size: 20px;
+}
+
+/* ===== Form ===== */
+.qtp-form {
+  flex: 1;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.qtp-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qtp-input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.qtp-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.qtp-currency {
+  position: absolute;
+  left: 12px;
+  color: #fbbf24;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.qtp-input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.qtp-input:focus {
+  outline: none;
+  background: rgba(30, 41, 59, 0.95);
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+.qtp-input::placeholder {
+  color: #64748b;
+}
+
+.qtp-input-hint {
+  position: absolute;
+  right: 12px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.qtp-select {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qtp-select:focus {
+  outline: none;
+  background: rgba(30, 41, 59, 0.95);
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+.qtp-select option {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+/* ===== Actions ===== */
+.qtp-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.qtp-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.qtp-btn-submit {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.1));
+  border: 1.5px solid rgba(34, 197, 94, 0.5);
+  color: #86efac;
+}
+
+.qtp-btn-submit:hover {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0.2));
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
+}
+
+.qtp-btn-submit:active {
+  transform: scale(0.98);
+}
+
+.qtp-btn-cancel {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.3), rgba(244, 63, 94, 0.1));
+  border: 1.5px solid rgba(244, 63, 94, 0.5);
+  color: #fca5a5;
+}
+
+.qtp-btn-cancel:hover {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.4), rgba(244, 63, 94, 0.2));
+  border-color: rgba(244, 63, 94, 0.7);
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.3);
+}
+
+.qtp-btn-cancel:active {
+  transform: scale(0.98);
+}
+
+.qtp-btn-icon {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ===== Hints ===== */
+.qtp-hints {
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border-top: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 0 0 16px 16px;
+}
+
+.qtp-hints p {
+  margin: 0;
+  font-size: 12px;
+  color: #86efac;
+  font-weight: 500;
+}
+
+.qtp-hints strong {
+  color: #fbbf24;
+  font-family: 'Courier New', monospace;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* ===== Scrollbar কাস্টমাইজেশন ===== */
+.qtp-form::-webkit-scrollbar {
+  width: 6px;
+}
+
+.qtp-form::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.qtp-form::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 3px;
+}
+
+.qtp-form::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+/* ===== রেসপন্সিভ ডিজাইন ===== */
+@media (max-width: 640px) {
+  .qtp-panel {
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+    max-height: 80vh;
+  }
+
+  .qtp-type-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .qtp-actions {
+    flex-direction: column;
+  }
+
+  .qtp-form {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .qtp-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .qtp-select {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+@media (max-width: 480px) {
+  .qtp-panel {
+    max-height: 95vh;
+  }
+
+  .qtp-type-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .qtp-header h3 {
+    font-size: 16px;
+  }
+}
